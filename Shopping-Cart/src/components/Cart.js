@@ -9,6 +9,7 @@ import { Ratings } from "./Ratings";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "./FilterItems.css";
+import notify from "../Notify/Notification";
 
 const Cart = () => {
   const [totalPrice, setTotalPrice] = useState();
@@ -31,6 +32,7 @@ const Cart = () => {
       .then((Response) => {
         console.log(Response.data);
         fetchCartItems();
+        notify("success", "Product Deleted from Cart ");
       })
       .catch((error) => {});
   };

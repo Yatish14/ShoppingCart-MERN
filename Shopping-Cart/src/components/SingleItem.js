@@ -3,6 +3,7 @@ import { Ratings } from "./Ratings"
 import { Button } from "react-bootstrap";
 import axios from "axios"
 import { useState, useEffect } from 'react';
+import notify from "../Notify/Notification";
 
 import "./SingleItem.css";
 export const SingleItem = ({item}) => {
@@ -26,6 +27,7 @@ export const SingleItem = ({item}) => {
     .then((Response) => {
         console.log(Response.data)
         fetchCartItems();
+        notify("success", "Product Added to Cart ");
     })
     .catch((err) => {
       console.log("Error",err)

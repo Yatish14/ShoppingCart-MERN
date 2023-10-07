@@ -5,11 +5,13 @@ import "./Home.css";
 import { FilterContext } from "../Context/ContextAPI";
 import { FilterItems } from "./FilterItems";
 import { useContext } from "react";
+
 const Home = () => {
   const [data, setData] = useState([]);
   const {FilterState: {byStock,byFastDelivery,byRating,sort,searchItem}, FilterDispatch} = useContext(FilterContext);
 
-  useEffect(() => {
+
+  const FetchProductItems = () => {
     axios
       .get("http://localhost:5000/product-items")
       .then((response) => {
@@ -19,7 +21,8 @@ const Home = () => {
       .catch((error) => {
         console.error(error);
       });
-  }, []);
+  }
+  useEffect(FetchProductItems, []);
 
   const FilteredItems = () => {
     let filteredItems = data;

@@ -16,6 +16,7 @@ import "./Header.css";
 import { useState,useEffect, useContext } from "react";
 import axios from "axios";
 import { FilterContext } from "../Context/ContextAPI";
+import notify from "../Notify/Notification";
 
 const Header = () => {
     const [cart, setcart] = useState();
@@ -38,6 +39,7 @@ const Header = () => {
     .then((Response) => {
         console.log(Response.data)
         fetchCartItems();
+        notify("success", "Product Deleted from Cart ");
     })
     .catch(error => {
       console.log("Error",error)
