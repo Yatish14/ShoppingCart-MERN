@@ -13,11 +13,13 @@ import { AiFillDelete } from "react-icons/ai";
 import { FaShoppingCart } from 'react-icons/fa';
 import { Link,useLocation } from "react-router-dom";
 import "./Header.css";
-import { useState,useEffect } from "react";
+import { useState,useEffect, useContext } from "react";
 import axios from "axios";
+import { FilterContext } from "../Context/ContextAPI";
 
 const Header = () => {
     const [cart, setcart] = useState();
+    const {FilterDispatch} = useContext(FilterContext);
 
   const fetchCartItems = () => {
     axios
@@ -54,7 +56,7 @@ const Header = () => {
                     placeholder = "Search the Products..."
                     style = {{width : 500}}
                     className = "m-auto"
-                    // onChange={}
+                    onChange={(e) => {FilterDispatch({type: "Filter_by_Search",payload: e.target.value})}}
                 />
             </Navbar.Text>
             )}

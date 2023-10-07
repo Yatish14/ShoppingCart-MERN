@@ -67,7 +67,7 @@ const Cart = () => {
               <ListGroup.Item >
                 <Row>
                   <Col md={2}>
-                    <Image src={item.image} alt={item.name} fluid rounded style={{objectFit: "contain",height: 100}}/>
+                    <Image src={item.image} alt={item.name} fluid rounded style={{objectFit: "contain"}}/>
                   </Col>
                   <Col md={2}>
                     <span>{item.name}</span>
