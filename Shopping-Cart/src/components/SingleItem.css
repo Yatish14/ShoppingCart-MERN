@@ -1,0 +1,12 @@
+.singleItem
+{
+    margin: 10px;
+    width: 30%;
+}
+@media (max-width: 771px)
+{
+    .singleItem
+    {
+        width: 100%;
+    }
+}

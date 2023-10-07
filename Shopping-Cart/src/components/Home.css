@@ -1,0 +1,20 @@
+.Homepage
+{
+    display: flex
+}
+.cardItem{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 10px;
+    width: 80%;
+}
+
+@media (max-width: 771px)
+{
+    .cardItem
+    {
+        width: 58%;
+        padding: 0;
+    }
+}
